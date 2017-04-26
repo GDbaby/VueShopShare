@@ -1,0 +1,172 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+}
+ul li{
+	list-style: none;
+}
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+/*字体*/
+.text-nav{
+	color: #444;
+	font-size:14px;
+}
+.text-secNav{
+	color:#4e4e4e;
+	font-size:14px;
+}
+.text-secBox-tit{
+	color:#222;
+	font-size: 16px;
+}
+.text-light{
+	color:#999;
+	font-size: 12px;
+}
+.text-page-nav{
+	color: #666;
+	font-size: 14px;
+}
+.Artical{
+	color: #666;
+	font-size: 14px;
+}
+.Artical-tit{
+	color:#444;
+	font-size: 16px;
+}
+/*主色调*/
+.mainbg{
+	background-color: #fd6363;
+	color:#fff;
+}
+.mainColor{
+	color: #fd6363;
+}
+
+.fullPercent{
+	width: 100%;
+}
+/*弹窗*/
+.sideBox{
+	display: flex;
+    justify-content: center;
+
+
+}
+.side-fixed-menu{
+	width: 1200px;
+	position: fixed;
+	bottom:210px;
+}
+.menu-item{
+	position: relative;
+    height:40px;
+    width:40px;
+    padding:4px;
+    background-color: #f5f5f5;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 88;
+    text-align: center;
+    float: right;
+
+}
+.menu-item .bt-iconfont {
+	font-size: 21px;
+    padding: 0;
+    left:10px;
+    top:10px;
+}
+.menu-item p{
+	font-size: 12px;
+	position: absolute;
+	top:40px;
+	width: 33px;
+}
+.if-back-to-top{
+	position: absolute;
+}
+.toTopText,.if-back-to-top{
+    -webkit-transition: top .2s ease-out;
+    transition: top .2s ease-out
+}
+#backToTop:hover .toTopText{
+	top:4px;
+}
+#backToTop:hover .if-back-to-top{
+	top:-40px; 
+}
+/* 底部*/
+
+.footer{
+	background: #434446;
+	width: 100%;
+	margin-top: 20px;
+}
+.footer-wrap{
+	width: 1440px;
+	margin: 0 auto;
+	background: #434446;
+	overflow: hidden;
+	padding-top: 30px;
+}
+.footer-dl{
+	float: left;
+	color: #bfbfbf;
+	font-size:12px;
+	border-left:1px solid #7b7b7b;
+	margin:0px 60px 10px 0px;
+	padding-left:10px;
+	text-align: left;
+}
+.footer-dl p{
+	padding-bottom: 18px;
+}
+.footer-right{
+	float: right;
+	color: #bfbfbf;
+	text-align: right;
+}
+.rightTxt-1{
+	font-size: 20px;
+}
+.rightTxt-2{
+	font-size: 15px;
+	padding-top: 15px;
+}
+.rightTxt-3{
+	font-size: 12px;
+	padding-top: 15px;
+}
+.footer-rightTxt{
+	float: left;
+}
+.footer-rightcode{
+	float: right;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	margin-left: 15px;
+}
+.footer-rightcode img{
+	width: 100px;
+	height: 100px;
+}
+.bottom-desc{
+	height: 40px;
+	background: #38383a;
+	color: #bfbfbf;
+	font-size: 12px;
+	line-height: 40px;
+}

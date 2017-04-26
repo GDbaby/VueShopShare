@@ -1,0 +1,53 @@
+.navside{
+	float:left;
+	line-height:50px;
+}
+.rightSide{
+	float:right;
+	width: 770px;
+}
+.findCont{
+	margin-top:30px;
+	overflow: hidden;
+}
+.thumbnailPic{
+	width: 230px;
+	height: 126px;
+	overflow: hidden;
+	float: left;
+}
+.rS-Box{
+
+}
+.rS-descript{
+	float: right;
+	max-width:520px;
+	text-align: left;
+	display: flex;
+	justify-content:space-between;
+	flex-direction:column;
+	height: 126px;
+}
+.navsideUl{
+	border-bottom:1px dashed #dadada;
+}
+.navsideLi{
+	border-top:1px dashed #dadada;
+	width: 160px;
+}
+.rS-tit{
+	font-size: 18px;
+	font-weight: 800;
+}
+.rS-text{
+	font-size: 14px;
+	color: #999;
+	line-height: 22px;
+	margin-top: 10px;
+}
+.info{
+	height: 18px;
+	text-align: right;
+	font-size: 12px;
+    color: #bfbfbf;
+}

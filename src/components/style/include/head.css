@@ -1,0 +1,94 @@
+
+.head{
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	height: 60px;
+	
+}
+.head-header{
+	width: 100%;
+    min-width: 1030px;
+    max-width: 1440px;
+	overflow: hidden;
+}
+.head-menu-left{
+	float: left;
+	overflow: hidden;
+	margin-left: 40px;
+}
+.head-menu-left a.router-link-active{
+	border-bottom: 2px solid #fd6363;
+	color: #000;
+}
+.navItem{
+	margin:0 20px;
+	text-decoration: none;
+	cursor: pointer;
+	height: 24px;
+    display: block;
+    position: relative;
+}
+.navItem:before{
+	content: '';
+    position: absolute;
+    z-index: -1;
+    left:50%;
+    right: 50%;
+    bottom: 0;
+    background: #fd6363;
+    height: 2px;
+    -webkit-transition-property: left,right,color;
+    transition-property: left,right,color;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+	top:22px;
+
+}
+.navItem:hover:before{
+	left: 0;
+	right: 0;
+}
+.navItem:hover{
+	color:#000;
+}
+.head-menu-right{
+	float: right;
+	margin-right: 40px;
+}
+#Nav{
+	float: left;
+	margin-top: 5px;
+}
+.logoTit{
+	width: 48px;
+	height: 27px;
+	float: left;
+	margin-right: 38px;
+}
+.searchIpt{
+	width: 200px;
+	height: 30px;
+	border-radius: 15px;
+	border: 1px solid #bfbfbf;
+	float: left;
+	outline: none;
+	font-size: 14px;
+	padding-left:30px;
+
+}
+.loginBtn{
+	float: left;
+	width: 100px;
+	height: 30px;
+	border-radius: 15px;
+	border: none;
+	color: #fff;
+	float: left;
+	margin-left: 30px;
+	outline: none;
+	font-size: 12px;
+
+}
