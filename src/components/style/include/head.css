@@ -1,5 +1,5 @@
 
-.head{
+.commonHead{
 	display: flex;
 	align-items:center;
 	justify-content: center;
@@ -86,7 +86,6 @@
 	border-radius: 15px;
 	border: none;
 	color: #fff;
-	float: left;
 	margin-left: 30px;
 	outline: none;
 	font-size: 12px;

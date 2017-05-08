@@ -1,5 +1,6 @@
 <template>
 	<div class="Good">
+		<MyHeader></MyHeader>
 		<div class="mainContent">
 			<div class="goodSub">
 				<div class="SubNav text-secNav">美妆</div>
@@ -55,18 +56,22 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
+		<MyFooter></MyFooter>	
+		<MyTop></MyTop>
 	</div>
 </template>
 <script>
+import MyHeader from '../page/MyHeader.vue'
+import MyFooter from '../page/MyFooter.vue'
+import MyTop from '../page/MyTop.vue'
 import '../style/good.css'
 export default {
   name: 'Good',
-  data () {
-    return {
-		msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    'MyHeader': MyHeader,
+    'MyFooter': MyFooter,
+    'MyTop': MyTop
   }
 }
 

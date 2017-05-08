@@ -1,0 +1,103 @@
+.model{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loginContent{
+	width: 420px;
+	height: 580px;
+	background: #fff;
+}
+.img-area{
+	width: 420px;
+	height: 160px;
+	background:url(../image/login-top-bg.jpg) no-repeat;
+	background-size: contain;
+}
+.log-reg-area{
+	padding:40px 0;
+}
+.log-tell,.log-pwd,.log-code{
+	margin:20px;
+}
+.log-ipt{
+	width: 280px;
+	height: 40px;
+	border:none;
+	border: 1px solid #ddd;
+	padding:0 15px;
+	border-radius:20px;
+	outline: none;
+}
+.log-code{
+	width:280px;
+	overflow: hidden;
+	margin:0 auto;
+}
+.log-codeipt{
+	width: 160px;
+	float: left;
+}
+.log-codebtn{
+	width: 100px;
+	float: right;
+	background: #f5f5f5;
+	text-align: center;
+	color: #666;
+	cursor: pointer;
+}
+.log-btn{
+	background:#fd6363;
+	color: #fff;
+	text-align: center;
+	outline: none;
+	font-size: 16px;
+	cursor: pointer;
+
+}
+.log-register{
+	color: #3f8cca;
+	font-size: 12px;
+	display: block;
+	text-decoration: none;
+	margin:10px 0 30px;
+}
+.log-fast{
+	width: 280px;
+	margin: 0 auto;
+}
+.log-fast-in{
+    position: relative;
+    font-size: 14px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    margin-top: 30px
+}
+.log-fast-in:after, .log-fast-in:before {
+    display: table;
+    content: '';
+    position: absolute;
+    top: 7px;
+    height: 0;
+    width: 50px;
+    border-top: 1px solid #eaeaea
+}
+.log-fast-in:after{
+	right: 0;
+}
+.log-fast-in:before {
+	left: 0;
+}
+.Weibo{
+	height:100px;
+	width:100px;
+	display: inline-block;
+	background-size: 200px 150px;
+	background-position:-94px -64px;
+	background:url(../image/sprites.png) no-repeat;
+}

@@ -5,9 +5,11 @@
       <div><router-link to="/Home/HomeNav1" class="SubNav text-secNav">美妆</router-link></div>
 
   </div>
-    <div class="items">
+  <div class="items">
     <div class="listItem">
-      <div class="tipimg"><img src="../../image/pic.jpg" style="width:100%;"></div>
+      <div class="tipimg">
+        <img src="../../image/pic.jpg" style="width:100%;">
+      </div>
       <div class="text-secBox-tit">网红面膜红黑榜</div>
       <div class="item-despt">
         <div class="item-nick">
@@ -30,17 +32,12 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'HomeNav'
-  // data () {
-  //   return {
-  //     msg: 'i am a component —— Hello'
-  //   }
-  // }
+  name: 'HomeNav' 
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

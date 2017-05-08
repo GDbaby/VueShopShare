@@ -1,5 +1,6 @@
 <template>
   <div class="Find">
+    <MyHeader></MyHeader>
     <div class="mainContent">
       <div class="findCont">
         
@@ -29,17 +30,22 @@
         </div>
       </div>
     </div>
+    <MyFooter></MyFooter> 
+    <MyTop></MyTop>
   </div>
 </template>
 
 <script>
+import MyHeader from '../page/MyHeader.vue'
+import MyFooter from '../page/MyFooter.vue'
+import MyTop from '../page/MyTop.vue'
 import '../style/find.css'
 export default {
   name: 'Find',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    'MyHeader': MyHeader,
+    'MyFooter': MyFooter,
+    'MyTop': MyTop
   }
 }
 </script>

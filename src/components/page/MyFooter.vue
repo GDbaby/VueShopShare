@@ -37,7 +37,7 @@
 </template>
 <script>
 	export default {
-		name: 'Footer'
+		name: 'MyHeader'
 	  // data () {
 	  //   return {
 	  //     msg: 'i am a component —— Hello'
