@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Validator from 'vue-validator'
+import Vuerify from 'vuerify'
 import Router from 'vue-router'
 import Home from '@/components/page/Home'
 import Find from '@/components/page/Find'
@@ -14,14 +14,14 @@ import '../components/style/index.css'
 
 
 
-Vue.use(Validator)
+Vue.use(Vuerify)
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/Home',
-      component: Home
+      component: Home,
     },
     {
       path: '/Find',

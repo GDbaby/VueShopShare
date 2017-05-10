@@ -18,8 +18,24 @@
 	background:url(../image/login-top-bg.jpg) no-repeat;
 	background-size: contain;
 }
+.moveLogin{
+		margin-top:0px;
+	animation:mymove1 0.9s;
+}
+@keyframes mymove1{
+    from{margin-top:-100px;}
+    to{margin-top:0;}
+}
+
+@-webkit-keyframes mymove1 {
+    from{margin-top:-100px;}
+    to{margin-top:0;}
+} 
 .log-reg-area{
-	padding:40px 0;
+	padding:30px 0;
+}
+.reg-padding{
+	padding:10px 0;
 }
 .log-tell,.log-pwd,.log-code{
 	margin:20px;
@@ -93,11 +109,55 @@
 .log-fast-in:before {
 	left: 0;
 }
-.Weibo{
-	height:100px;
-	width:100px;
+.L-icon{
+	height:24px;
+	width:24px;
 	display: inline-block;
 	background-size: 200px 150px;
-	background-position:-94px -64px;
-	background:url(../image/sprites.png) no-repeat;
+	transform: scale(1.25);
+}
+.Weibo{
+	background:url(../image/sprites2.png) no-repeat -94px -64px;
+}
+.qqContent{
+	background:url(../image/sprites2.png) no-repeat -118px -64px;
+}
+.Weibo:hover{
+	background:url(../image/sprites2.png) no-repeat -94px -38px;
+}
+.qqContent:hover{
+	background:url(../image/sprites2.png) no-repeat -118px -38px;
+}
+.log-bottom{
+	margin-top: 20px;
+	font-size: 14px;
+
+}
+.log-bottom a{
+	text-decoration: none;
+	color: #666;
+
+}
+.log-left{
+	margin-right:70px;
+	display: inline-block;
+}
+.log-right{
+	margin-left: 70px;
+	display: inline-block;
+}
+.pt-10{
+	padding-top: 10px;
+
+}
+.pt-15{
+	padding-top: 15px;
+}
+.model-close{
+	width: 20px;
+	height: 20px;
+	position:absolute;
+	right:40px;
+	top:40px;
+	background:url(../image/sprites2.png) no-repeat -50px -94px;
 }

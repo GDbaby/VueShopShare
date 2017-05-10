@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import validator from 'vue-validator'
 import $ from 'jquery'
 
 Vue.config.productionTip = false
@@ -21,7 +22,7 @@ router.beforeEach((to, from, next) => {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router,validator,
   template: '<App/>',
   components: { App }
 })

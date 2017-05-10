@@ -1,11 +1,10 @@
 <template>
 	<div class="model">
-		<div class="loginContent">
-			<div class="img-area"></div>
-			<validator name="validation1">
+		<div class="loginContent moveLogin">
+			<div class="img-area"></div> 
 				<form novalidate class="log-reg-area">
 					<div class="log-tell">
-						<input type="text" class="log-ipt" placeholder="手机号">
+						<input type="text" class="log-ipt" v-model="username" placeholder="手机号">
 					</div>
 					<div class="log-pwd">
 						<input type="text" class="log-ipt" placeholder="密码">
@@ -14,20 +13,24 @@
 					<router-link to="/Register" class="log-register">注册</router-link>
 					<div class="log-fast">
 						<div class="log-fast-in">社交账号快速登录</div>
-						<div>
+						<div class="log-bottom">
+						<div class="log-left">
 							<a href="">
-								<i class="Weibo"></i>
-								<span>微博</span>
+								<i class="L-icon Weibo"></i>
+								<p class="pt-10">微博</p>
 							</a>
+						</div>
+						<div class="log-right">
 							<a href="">
-								<i class="qqContent"></i>
-								<span>QQ</span>
+								<i class="L-icon qqContent"></i>
+								<p class="pt-15">QQ</p>
 							</a>
+						</div>
 						</div>
 					</div>
 				</form>
-			</validator>
 		</div>
+		<i class="model-close"></i>
 	</div>
 </template>
 <script>

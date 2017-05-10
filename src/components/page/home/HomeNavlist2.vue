@@ -2,7 +2,7 @@
 	<div class="HomeNavlist items">
 		<div class="listItem">
 			<div class="tipimg"><img src="/static/images/pic.jpg" style="width:100%;"></div>
-			<div class="text-secBox-tit">网红面膜红黑榜11</div>
+			<div class="text-secBox-tit">适合午后解乏的办公好物</div>
 			<div class="item-despt">
 				<div class="item-nick">
 					<div class="headimg">
@@ -28,6 +28,6 @@
 </template>	
 <script>
 	export default{
-		name:'HomeNavlist'
+		name:'HomeNavlist2'
 	}
 </script>
