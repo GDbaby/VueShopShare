@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuerify from 'vuerify'
 import Router from 'vue-router'
+import VueResource from 'vue-resource'
 import Home from '@/components/page/Home'
 import Find from '@/components/page/Find'
 import Good from '@/components/page/Good'
@@ -16,6 +17,7 @@ import '../components/style/index.css'
 
 Vue.use(Vuerify)
 Vue.use(Router)
+Vue.use(VueResource)
 
 export default new Router({
   routes: [
