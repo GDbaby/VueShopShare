@@ -6,6 +6,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+    top:0;
+    z-index: 1;
 }
 .loginContent{
 	width: 420px;
@@ -19,7 +21,7 @@
 	background-size: contain;
 }
 .moveLogin{
-		margin-top:0px;
+	margin-top:0px;
 	animation:mymove1 0.9s;
 }
 @keyframes mymove1{
@@ -39,6 +41,13 @@
 }
 .log-tell,.log-pwd,.log-code{
 	margin:20px;
+}
+.err{
+	color:#fd6363;
+	font-size: 13px; 
+	width: 270px;
+	margin:-10px auto 10px;
+	text-align: left;
 }
 .log-ipt{
 	width: 280px;
