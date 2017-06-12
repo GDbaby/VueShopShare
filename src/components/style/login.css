@@ -90,6 +90,7 @@
 	display: block;
 	text-decoration: none;
 	margin:10px 0 30px;
+	cursor: pointer
 }
 .log-fast{
 	width: 280px;

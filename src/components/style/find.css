@@ -35,6 +35,10 @@
 	border-top:1px dashed #dadada;
 	width: 160px;
 }
+.navsideLi:hover{
+    color: #fd6363;
+    cursor: pointer;
+}
 .rS-tit{
 	font-size: 18px;
 	font-weight: 800;

@@ -19,13 +19,15 @@
         </div>
       </div>    
     </div>
-    <login v-show='myIsShow'></login>
+    <login v-show='LoginIsShow'></login>
+   
   </div>
 </template>
 <script>
 import '../style/login.css'
 import '../../js/show.js'
 import login from '../page/login.vue'
+
   export default{
     name:'MyHeader',
     components: {
@@ -33,13 +35,12 @@ import login from '../page/login.vue'
     },
     data(){
       return{
-        myIsShow:false
+        LoginIsShow:false,
       }
     },
     methods:{
        showModel:function(){
-        console.log(123450);
-        this.myIsShow = !this.myIsShow;
+        this.LoginIsShow = !this.LoginIsShow;
       },
     }
 	}

@@ -7,8 +7,8 @@
         </div>
         <div class="mainContent">
           <HomeNav></HomeNav>
+        </div>
       </div>
-    </div>
     <MyFooter></MyFooter>
     <MyTop></MyTop>
   </div>

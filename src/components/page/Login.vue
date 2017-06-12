@@ -1,37 +1,81 @@
-<template>
+<div id="app">
+    <timer-btn class="btn btn-default" @click="send" :disabled="disabled" v-ref:btn :second="5"></timer-btn>
+</div>
+<template id="timerBtn">
 	<div class="model"  id="loginForm" v-show='isShow'> 
-		<div class="loginContent moveLogin">
+		<div class="loginContent moveLogin" v-show='LoginIsShow'>
 			<div class="img-area"></div> 
-				<form class="log-reg-area">
-					<div class="log-tell">
-						<input type="text" class="log-ipt" v-model="userinfo.userId" maxlength="11" placeholder="手机号">
+			<form class="log-reg-area">
+				<div class="log-tell">
+					<input type="text" class="log-ipt" v-model="userinfo.userId" maxlength="11" placeholder="手机号">
+				</div>
+				<div class="log-pwd">
+					<input type="password" class="log-ipt" v-model="userinfo.password"  rangelength="(4,16)" placeholder="密码">
+				</div>	
+				<!-- <ul><li v-for="err in errors" v-text="err"></li></ul> -->
+				<div class="err" v-text="wrongText">1111</div>
+				<input v-on:click="mobileLogin" type="button" class="log-ipt log-btn" value="登录">
+				<a class="log-register" v-on:click="RegisterIs">注册</a>
+				<div class="log-fast">
+					<div class="log-fast-in">社交账号快速登录</div>
+					<div class="log-bottom">
+					<div class="log-left">
+						<a href="">
+							<i class="L-icon Weibo"></i>
+							<p class="pt-10">微博</p>
+						</a>
 					</div>
-					<div class="log-pwd">
-						<input type="password" class="log-ipt" v-model="userinfo.password"  rangelength="(4,16)" placeholder="密码">
-					</div>	
-					<!-- <ul><li v-for="err in errors" v-text="err"></li></ul> -->
-					<div class="err" v-text="wrongText">1111</div>
-					<input v-on:click="mobileLogin" type="button" class="log-ipt log-btn" value="登录">
-					<router-link to="/Register" class="log-register">注册</router-link>
-					<div class="log-fast">
-						<div class="log-fast-in">社交账号快速登录</div>
-						<div class="log-bottom">
-						<div class="log-left">
-							<a href="">
-								<i class="L-icon Weibo"></i>
-								<p class="pt-10">微博</p>
-							</a>
-						</div>
-						<div class="log-right">
-							<a href="">
-								<i class="L-icon qqContent"></i>
-								<p class="pt-15">QQ</p>
-							</a>
-						</div>
-						</div> 
+					<div class="log-right">
+						<a href="">
+							<i class="L-icon qqContent"></i>
+							<p class="pt-15">QQ</p>
+						</a>
 					</div>
-				</form>
+					</div> 
+				</div>
+			</form>
 		</div>
+
+		<div class="loginContent" v-show='RegisterIsShow'>
+			<div class="img-area"></div>
+			<div class="log-reg-area reg-padding">
+				<div class="log-tell">
+					<input type="text" class="log-ipt" v-model="passerby.userId" maxlength="11" placeholder="手机号">
+				</div>
+				<div class="log-code">
+					<input type="text" class="log-ipt log-codeipt" v-model="passerby.code" placeholder="验证码">
+					<input type="button" value="获取验证码" class="log-ipt log-codebtn" v-on:click="getCode">
+                    <!-- <button :disabled="disabled || time > 0">
+                        {{ text }}
+                    </button> -->
+				</div>
+				<div class="log-pwd">
+					<input type="password" class="log-ipt" v-model="passerby.password"  placeholder="密码">
+				</div>	
+				<div class="err" v-text="wrongText2">1111</div>	
+				<input type="button" class="log-ipt log-btn" v-on:click="mobileRegister" value="注册">
+				<a class="log-register" v-on:click="LoginIs">登录</a>
+				<div class="log-fast">
+					<div class="log-fast-in">社交账号快速登录</div>
+					<div class="log-bottom">
+					<div class="log-left">
+						<a href="">
+							<i class="L-icon Weibo"></i>
+							<p class="pt-10">微博</p>
+						</a>
+					</div>
+					<div class="log-right">
+						<a href="">
+							<i class="L-icon qqContent"></i>
+							<p class="pt-15">QQ</p>
+						</a>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 		<i class="model-close" v-on:click="hideModel"></i>
 	</div>
 </template>
@@ -40,65 +84,128 @@ import '../style/login.css'
 import Vue from 'vue'
   export default{
     name:'MyHeader',
-    data(){ 
+    data(){
       return{
         isShow:true,
         wrongText:null,
-        userinfo:{}
+        wrongText2:null,
+        RegisterIsShow:false,
+        LoginIsShow:true,
+        userinfo:{},
+        passerby:{},
+        time:60
+
       }
     },
     computed:{
       // 判断手机号
-      rightTel:function () {
+      LoginTelTest:function () {
         return /^1[3|4|5|7|8|9]\d{9}$/.test(this.userinfo.userId);
       },
-      rightpwd:function(){
-        return /(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,10}$/.test(this.userinfo.password)
+      RegisterTelTest:function () {
+        return /^1[3|4|5|7|8|9]\d{9}$/.test(this.passerby.userId);
+      },
+      rightpwdTest:function(){
+        return /(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,10}$/.test(this.passerby.password)
       }
 
     },
     methods:{
-      // showModel:function(){
-      //   console.log(123450);
-      //   this.isShow = !this.isShow;
-      // },
-      mobileLogin(){
-        if(!this.userinfo.userId){
-          this.wrongText='手机不能为空';
-          return
-        }else if (!this.rightTel) {
-          this.wrongText='手机号码格式不正确';
-          return
-        }
-        else if(!this.userinfo.password){
-          this.wrongText='密码不能为空';
-          return
-        
-        }else{
-          this.wrongText='';
-          this.loginBtn();
-        }
-      },
-      loginBtn:function (event) {
-        this.$http.post("http://localhost:3000/api/login",this.userinfo,{emulateJSON:true})
-        .then(function(rs){
-          if(rs.data.msg==true){
-            console.log('登录成功')
-          }else{
-            this.wrongText='用户名或密码错误';
-          }
-        },function(rs){
-          console.log('222',rs);
-        })
-      },
-      hideModel:function(){
-      	console.log('删除')
-        this.isShow = !this.isShow;
-      },
-      
-      
-    }
-    
-  
-	}
+    	RegisterIs(){
+    		this.RegisterIsShow=true;
+    		this.LoginIsShow=false;
+    	},
+    	LoginIs(){
+    		this.LoginIsShow=true;
+    		this.RegisterIsShow=false;
+    	},
+      	mobileLogin(){
+	        if(!this.userinfo.userId){
+	          this.wrongText='手机不能为空1';
+	          return
+	        }else if(!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.userinfo.userId))){
+	          this.wrongText='手机号码格式不正确1';
+	          return
+	        }
+	        else if(!this.userinfo.password){
+	          this.wrongText='密码不能为空1';
+	          return
+
+	        }else{
+	          this.wrongText='';
+	          this.loginBtn();
+	        }
+      	},
+      	loginBtn:function (event) {
+	        this.$http.post("http://localhost:3000/api/login",this.userinfo,{emulateJSON:true})
+	        .then(function(rs){
+	          if(rs.data.state==0){
+	            this.wrongText='账户不存在';
+	          }else if(rs.data.state==1){
+	            this.wrongText='用户名或密码错误';
+	          }else if(rs.data.state==2){
+	          	console.log('成功')
+	          }
+	          console.log(rs.data.state);
+	        },function(rs){
+	          console.log('222',rs);
+	        })
+      	},
+      	// 注册判断
+      	mobileRegister(){
+ 			if(!this.passerby.userId){
+	        	this.wrongText2='手机不能为空2';
+	        	return
+	        }else if(!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.passerby.userId))){
+	        	this.wrongText2='手机号码格式不正确2';
+	        	return
+	        }
+	        else if(!this.passerby.password){
+	         	this.wrongText2='密码不能为空2';
+	        	return
+
+	        }else if(!(/(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,10}$/.test(this.passerby.password))){
+	         	this.wrongText2='密码格式不正确2';
+	        	return
+	        }else{
+	        	this.wrongText2='';
+	        	console.log("注册正确");
+	        	this.RegisterBtn();
+	        }
+      	},
+      	// 注册按钮
+      	RegisterBtn:function (event){
+	        this.$http.post("http://localhost:3000/api/register",{emulateJSON:true})
+	        .then(function(rs){
+	          if(rs.data.state==0){
+	            this.wrongText2='账户不存在';
+	          }else if(rs.data.state==1){
+	            this.wrongText2='用户名或密码错误';
+	          }else if(rs.data.state==2){
+	          	console.log('成功')
+	          }0
+	          console.log(rs.data.state);
+	        },function(rs){
+	          console.log('222',rs);
+	        })
+      	},
+      	getCode:function(event){
+      		setInterval(1000,function(){
+      			this.time-=1;
+      		})
+      		// this.$http.post("http://localhost:3000/api/getVerification",{emulateJSON:true}).then(function(data){
+      		// 	console.log('a',data);
+      		// },function(data){
+      		// 	console.log('b',data);
+      		// })
+      	},
+      	hideModel:function(){
+        	this.isShow = !this.isShow;
+      	},
+
+
+    },
+
+
+}
 </script>

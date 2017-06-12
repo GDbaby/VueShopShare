@@ -101,11 +101,13 @@
 .if-like:before {
     content: '\e601'
 }
-.mainContent .router-link-active{
-	background-color: #fd6363;
-	color: #fff;
-}
 .HomeNav .SubNav:hover{
 	background-color:#fd6363;
 	color:#fff;
+	cursor: pointer;
 }
+  
+.active{
+	background-color: #fd6363;
+	color: #fff;
+}  

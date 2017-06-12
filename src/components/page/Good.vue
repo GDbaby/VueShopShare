@@ -31,7 +31,7 @@
 			<div class="goodCont">
 				<div class="goodContHead">
 					<div class="goodContLeft">
-						<div class="goodContNav active"><i class="bt-iconfont if-goods"></i>好物</div>
+						<div class="goodContNav goodActive"><i class="bt-iconfont if-goods"></i>好物</div>
 						<div class="goodContNav"><i class="bt-iconfont if-post"></i>晒单</div>
 						<div class="goodContNav"><i class="bt-iconfont if-topic"></i>文章</div>
 					</div>
