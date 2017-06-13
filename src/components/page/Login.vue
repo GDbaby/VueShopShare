@@ -1,17 +1,14 @@
-<div id="app">
-    <timer-btn class="btn btn-default" @click="send" :disabled="disabled" v-ref:btn :second="5"></timer-btn>
-</div>
-<template id="timerBtn">
-	<div class="model"  id="loginForm" v-show='isShow'> 
+<template>
+	<div class="model"  id="loginForm" v-show='isShow'>
 		<div class="loginContent moveLogin" v-show='LoginIsShow'>
-			<div class="img-area"></div> 
+			<div class="img-area"></div>
 			<form class="log-reg-area">
 				<div class="log-tell">
 					<input type="text" class="log-ipt" v-model="userinfo.userId" maxlength="11" placeholder="手机号">
 				</div>
 				<div class="log-pwd">
 					<input type="password" class="log-ipt" v-model="userinfo.password"  rangelength="(4,16)" placeholder="密码">
-				</div>	
+				</div>
 				<!-- <ul><li v-for="err in errors" v-text="err"></li></ul> -->
 				<div class="err" v-text="wrongText">1111</div>
 				<input v-on:click="mobileLogin" type="button" class="log-ipt log-btn" value="登录">
@@ -31,7 +28,7 @@
 							<p class="pt-15">QQ</p>
 						</a>
 					</div>
-					</div> 
+					</div>
 				</div>
 			</form>
 		</div>
@@ -44,15 +41,12 @@
 				</div>
 				<div class="log-code">
 					<input type="text" class="log-ipt log-codeipt" v-model="passerby.code" placeholder="验证码">
-					<input type="button" value="获取验证码" class="log-ipt log-codebtn" v-on:click="getCode">
-                    <!-- <button :disabled="disabled || time > 0">
-                        {{ text }}
-                    </button> -->
-				</div>
+          <button class="log-ipt log-codebtn" @click="getCode" :disabled="disabled">{{ text }}</button>
+        </div>
 				<div class="log-pwd">
 					<input type="password" class="log-ipt" v-model="passerby.password"  placeholder="密码">
-				</div>	
-				<div class="err" v-text="wrongText2">1111</div>	
+				</div>
+				<div class="err" v-text="wrongText2">1111</div>
 				<input type="button" class="log-ipt log-btn" v-on:click="mobileRegister" value="注册">
 				<a class="log-register" v-on:click="LoginIs">登录</a>
 				<div class="log-fast">
@@ -93,7 +87,9 @@ import Vue from 'vue'
         LoginIsShow:true,
         userinfo:{},
         passerby:{},
-        time:60
+        disabled: false,
+        second: 60,
+        text: '获取验证码'
 
       }
     },
@@ -189,16 +185,21 @@ import Vue from 'vue'
 	          console.log('222',rs);
 	        })
       	},
-      	getCode:function(event){
-      		setInterval(1000,function(){
-      			this.time-=1;
-      		})
-      		// this.$http.post("http://localhost:3000/api/getVerification",{emulateJSON:true}).then(function(data){
-      		// 	console.log('a',data);
-      		// },function(data){
-      		// 	console.log('b',data);
-      		// })
-      	},
+      getCode: function () {
+        this.disabled = true;
+        this.timer();
+      },
+      timer: function () {
+        if (this.second > 1) {
+          this.second--;
+          this.text = this.second + 's 后重新获取';
+          setTimeout(this.timer, 1000);
+        }else{
+          this.disabled = false;
+          this.second = 60;
+          this.text = '获取验证码';
+        }
+      },
       	hideModel:function(){
         	this.isShow = !this.isShow;
       	},
