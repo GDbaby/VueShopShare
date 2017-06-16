@@ -17,16 +17,26 @@
           <input type="text" class="searchIpt bz" placeholder="搜索你想要的">
           <input type="button" class="loginBtn mainbg" value="登录 / 注册" @click='showModel'>
         </div>
-      </div>    
+      </div>
     </div>
     <login v-show='LoginIsShow'></login>
-   
+
+    <div class="sideBox">
+      <div class="side-fixed-menu">
+        <div class="menu-item" id="backToTop" @click="backTop">
+          <i class="bt-iconfont if-back-to-top"></i>
+          <p class="toTopText">返回顶部</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 <script>
 import '../style/login.css'
-import '../../js/show.js'
+import {showBack, animate} from '../../js/mUtils.js'
 import login from '../page/login.vue'
+
 
   export default{
     name:'MyHeader',
@@ -41,6 +51,9 @@ import login from '../page/login.vue'
     methods:{
        showModel:function(){
         this.LoginIsShow = !this.LoginIsShow;
+      },
+      backTop:function(){
+        animate(document.body, {scrollTop: '0'}, 400,'ease-out');
       },
     }
 	}
